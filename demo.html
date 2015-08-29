@@ -1,0 +1,38 @@
+<head>
+  <title>demo</title>
+</head>
+
+<body>
+
+ {{> chats}}
+</body>
+<template name="chats">
+    <div class="container">
+
+        <header>
+           {{> loginButtons}}
+        </header>
+{{#if currentUser}}
+        <ul>
+            {{#each recentMessages}}
+                <li>
+                    <div class="username">{{username}}</div>
+                    <div class="message">{{text}}</div>
+                </li>
+            {{/each}}
+        </ul>
+        <footer>
+
+            <form class="new-message" id="chat-box">
+                <input type="text" class="txt-msg" name="text" placeholder="Add a message" />
+            </form>
+
+        </footer>
+        {{else}}
+        <ul>
+            <li> You must log in</li>
+        </ul>
+    {{/if}}
+    </div>
+</template>
+
